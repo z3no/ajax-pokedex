@@ -19,16 +19,18 @@ async function getPokemon () {
     //display the Pokémon name
     let pokemonName = document.getElementById('pokemonName');
     pokemonName.innerText = data.name;
+
     //display the moves
-    let pokemonMoves = document.getElementById('pokemonMoves');
-    function moves () {
-        const moves = [];
-        for (let i = 0; i < 4; i++) {
-            moves.push(` ${data.moves[i].move.name}`);
-        }
-        return moves;
+    let oneTrickPony = ['ditto', '132', '201', 'unown', '235', 'smeargle'] //Pokémons with one move in array
+    if (input === oneTrickPony) {
+        let pokemonMoves = document.getElementById('pokemonMoves');
+        let movesArray = data.moves.map(moves => moves.move.name);
+        console.log(pokemonMoves);
+        pokemonMoves.innerText = movesArray;
+    } else {
+        pokemonMoves.innerText = data.moves.map(moves => moves.move.name).splice(0, 4).join(', ');
     }
-    pokemonMoves.innerText = moves();
+
     //display the image
     function addImage (){
         const pokemonImageContainer = document.getElementById('pokemonImageContainer');
