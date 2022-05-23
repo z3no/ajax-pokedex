@@ -1,12 +1,13 @@
 const apiPokemon = "https://pokeapi.co/api/v2/pokemon/";
 const searchButton = document.getElementById('search');
 
-async function getPokemonById () {
-    let pokemonId = document.getElementById('pokemon-id').value;
-    let numberId = Number(pokemonId);
 
-    const response = await fetch(`${apiPokemon}${numberId}`);
-    // If call failed, giva an error
+async function getPokemonById () {
+    const pokemonValue = document.getElementById('pokemon').value;
+    let input = pokemonValue;
+
+    const response = await fetch(`${apiPokemon}${input}`);
+    // If call failed, give an error
     if (!response.ok) {
         throw 'Something went wrong!';
     }
