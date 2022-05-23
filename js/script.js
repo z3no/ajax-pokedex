@@ -23,9 +23,16 @@ async function getPokemon () {
     let pokemonMoves = document.getElementById('pokemonMoves');
     pokemonMoves.innerText = `${data.moves[0].move.name}, ${data.moves[1].move.name}, ${data.moves[2].move.name}, ${data.moves[3].move.name}`;
     //display the image
-    let newPokemonImage = new Image;
-    newPokemonImage.src = data.sprites.front_default;
-    document.getElementById('pokemonImage').appendChild(newPokemonImage);
+    function addImage (){
+        const pokemonImage = document.getElementById('pokemonImage');
+        let newPokemonImage = new Image;
+        newPokemonImage.src = data.sprites.front_default;
+        pokemonImage.innerHTML = '';
+        pokemonImage.appendChild(newPokemonImage);
+    }
+
+    addImage();
+
 }
 
 searchButton.addEventListener('click', getPokemon);
