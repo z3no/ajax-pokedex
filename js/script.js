@@ -23,6 +23,9 @@ async function getPokemon () {
     let pokemonMoves = document.getElementById('pokemonMoves');
     pokemonMoves.innerText = `${data.moves[0].move.name}, ${data.moves[1].move.name}, ${data.moves[2].move.name}, ${data.moves[3].move.name}`;
     //display the image
+    let newPokemonImage = new Image;
+    newPokemonImage.src = data.sprites.front_default;
+    document.getElementById('pokemonImage').appendChild(newPokemonImage);
 }
 
 searchButton.addEventListener('click', getPokemon);
