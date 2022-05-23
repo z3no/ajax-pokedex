@@ -11,7 +11,7 @@ async function getPokemonById () {
         throw 'Something went wrong!';
     }
     const data = await response.json();
-    console.log(data.name);
+    console.log(data.id, data.name, data.moves[0], data.moves[1], data.moves[2], data.moves[3]);
 }
 
 searchButton.addEventListener('click', getPokemonById);
