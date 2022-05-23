@@ -2,7 +2,7 @@ const apiPokemon = "https://pokeapi.co/api/v2/pokemon/";
 const searchButton = document.getElementById('search');
 
 
-async function getPokemonById () {
+async function getPokemon () {
     const pokemonValue = document.getElementById('pokemon').value;
     let input = pokemonValue;
 
@@ -13,6 +13,9 @@ async function getPokemonById () {
     }
     const data = await response.json();
     console.log(data.id, data.name, data.moves[0], data.moves[1], data.moves[2], data.moves[3], data.sprites.front_default);
+    //display the ID
+    let pokemonID = document.getElementById('pokemonID');
+    pokemonID.innerText = data.id;
 }
 
-searchButton.addEventListener('click', getPokemonById);
+searchButton.addEventListener('click', getPokemon);
