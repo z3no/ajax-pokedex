@@ -70,6 +70,10 @@ button {
 .display .card:hover:before {
   clip-path: circle(300px at 80% -20%);
 }
+.display .card:hover .imageContainer {
+  top: 0;
+  transform: translateY(0);
+}
 .display .card:after {
   content: "Pokémon";
   position: absolute;
@@ -79,6 +83,22 @@ button {
   font-weight: 800;
   font-style: italic;
   color: rgba(255, 255, 25, 0.05);
+}
+.display .card .imageContainer {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
+  width: 100%;
+  height: 220px;
+  transition: 0.5s;
+}
+.display .card .imageContainer img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 270px;
 }
 
 /*# sourceMappingURL=style.css.map */
