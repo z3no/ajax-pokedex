@@ -15,6 +15,7 @@ async function getPokemon () {
         const data = await response.json();
         //console.log(data, data.id, data.name, data.moves[0], data.moves[1], data.moves[2], data.moves[3], data.sprites.front_default);
 
+    /*
     //get the evolution line
         const responseEvolutionLine = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${data.name}`);
         if(!responseEvolutionLine.ok) {
@@ -25,6 +26,7 @@ async function getPokemon () {
 
         const previousEvolution = dataEvolutionLine.evolves_from_species.name;
         console.log(previousEvolution);
+    */
 
     //display the ID
         let pokemonID = document.getElementById('pokemonID');
