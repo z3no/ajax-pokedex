@@ -77,6 +77,10 @@ button {
         top: 0;
         transform: translateY(0);
       }
+
+      .cardContent {
+        height: 210px;
+      }
     }
 
     &:after {
@@ -106,6 +110,16 @@ button {
         transform: translate(-50%, -50%);
         width: 270px;
       }
+    }
+
+    .cardContent {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      text-align: center;
+      transition: 1s;
+      z-index: 10;
     }
   }
 }
