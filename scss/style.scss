@@ -80,6 +80,19 @@ button {
 
       .cardContent {
         height: 210px;
+
+        .id {
+          opacity: 1;
+          visibility: visible;
+          transition-delay: 0.5s;
+        }
+
+        .moves {
+          opacity: 1;
+          visibility: visible;
+          transition-delay: 0.6s;
+        }
+
       }
     }
 
@@ -140,6 +153,15 @@ button {
         visibility: hidden;
         padding-top: 0;
         padding-bottom: 0;
+
+        h2 {
+          color: #fff;
+          font-weight: 300;
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin-right: 10px;
+        }
       }
     }
   }

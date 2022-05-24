@@ -77,6 +77,16 @@ button {
 .display .card:hover .cardContent {
   height: 210px;
 }
+.display .card:hover .cardContent .id {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s;
+}
+.display .card:hover .cardContent .moves {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.6s;
+}
 .display .card:after {
   content: "POKÉMON";
   position: absolute;
@@ -130,6 +140,15 @@ button {
   visibility: hidden;
   padding-top: 0;
   padding-bottom: 0;
+}
+.display .card .cardContent .id h2,
+.display .card .cardContent .moves h2 {
+  color: #fff;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
