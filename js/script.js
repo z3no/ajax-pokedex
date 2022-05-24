@@ -1,5 +1,6 @@
 const apiPokemon = "https://pokeapi.co/api/v2/pokemon/";
 const searchButton = document.getElementById('search');
+const display = document.querySelector('.display');
 
 async function getPokemon () {
     const pokemonValue = document.getElementById('pokemon').value;
@@ -41,6 +42,14 @@ async function getPokemon () {
     }
 
     addImage();
+
+    //make the card visible in HTML
+    function displayCard () {
+        display.style.visibility = 'visible';
+    }
+
+    displayCard();
+
 }
 
 searchButton.addEventListener('click', getPokemon);
