@@ -36,7 +36,7 @@ async function getPokemon () {
     function addImage (){
         const pokemonImageContainer = document.getElementById('pokemonImageContainer');
         let newPokemonImage = new Image;
-        newPokemonImage.src = data.sprites.front_default;
+        newPokemonImage.src = data.sprites.other.home.front_default;
         pokemonImageContainer.innerHTML = '';
         pokemonImageContainer.appendChild(newPokemonImage);
     }
