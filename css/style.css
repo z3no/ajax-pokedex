@@ -112,5 +112,12 @@ button {
   transition: 1s;
   z-index: 10;
 }
+.display .card .cardContent h1 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0;
+}
 
 /*# sourceMappingURL=style.css.map */

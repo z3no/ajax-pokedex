@@ -120,6 +120,15 @@ button {
       text-align: center;
       transition: 1s;
       z-index: 10;
+
+      h1 {
+        position: relative;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #fff;
+        margin: 0;
+      }
+
     }
   }
 }
