@@ -26,18 +26,31 @@ async function getPokemon () {
     const dataEvolutionChain = await responseEvolutionChain.json();
     console.log(dataEvolutionChain);
 
-    //Evolutions eevee
-    if (dataEvolutionChain.chain.evolves_to.length === 8) {
-        console.log(dataEvolutionChain.chain.species.name);
-        console.log(dataEvolutionChain.chain.evolves_to[0].species.name);
-        console.log(dataEvolutionChain.chain.evolves_to[1].species.name);
-        console.log(dataEvolutionChain.chain.evolves_to[2].species.name);
-        console.log(dataEvolutionChain.chain.evolves_to[3].species.name);
-        console.log(dataEvolutionChain.chain.evolves_to[4].species.name);
-        console.log(dataEvolutionChain.chain.evolves_to[5].species.name);
-        console.log(dataEvolutionChain.chain.evolves_to[6].species.name);
-        console.log(dataEvolutionChain.chain.evolves_to[7].species.name);
+    //evolutions
+    const firstPokemonForm = dataEvolutionChain.chain.species.name;
+    console.log(firstPokemonForm);
+
+    const firstEvolutionName = dataEvolutionChain.chain.evolves_to[0].species.name;
+    console.log(firstEvolutionName);
+
+    const secondEvolutionName = dataEvolutionChain.chain.evolves_to[0].evolves_to[0].species.name;
+    console.log(secondEvolutionName);
+
+    //Pokemon with evolutions in array
+    let pokemonArray = [];
+    pokemonArray.push(firstPokemonForm);
+    pokemonArray.push(firstEvolutionName);
+    pokemonArray.push(secondEvolutionName);
+
+    console.log(pokemonArray);
+
+    //display evolutions
+    function displayEvolutions (){
+        const evolutionDisplay = document.getElementById('evolutionContainer');
+        evolutionDisplay.innerText = pokemonArray;
     }
+
+    displayEvolutions();
 
     //display the ID
     let pokemonID = document.getElementById('pokemonID');
