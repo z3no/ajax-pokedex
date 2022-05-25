@@ -6,15 +6,36 @@ async function getPokemon () {
     const pokemonValue = document.getElementById('pokemon').value;
     let input = pokemonValue;
 
-    //get pokemon by input
-        const response = await fetch(`${apiPokemon}${input}`);
-        // If call failed, give an error
-        if (!response.ok) {
-            throw 'Something went wrong!';
-        }
-        const data = await response.json();
-        //console.log(data, data.id, data.name, data.moves[0], data.moves[1], data.moves[2], data.moves[3], data.sprites.front_default);
+    //get pokemon name/id by input
+    const response = await fetch(`${apiPokemon}${input}`);
+    // If call failed, give an error
+    if (!response.ok) {
+        throw 'Something went wrong!';
+    }
+    const data = await response.json();
+    console.log(data);
+    //console.log(data, data.id, data.name, data.moves[0], data.moves[1], data.moves[2], data.moves[3], data.sprites.front_default);
 
+    //get pokemon species url
+    const responseSpecies = await fetch (data.species.url);
+    const dataSpecies = await responseSpecies.json();
+    console.log(dataSpecies);
+
+    //get pokemon evolution chain
+    const responseEvolutionChain = await fetch (dataSpecies.evolution_chain.url);
+    const dataEvolutionChain = await responseEvolutionChain.json();
+    console.log(dataEvolutionChain);
+
+    //Evolutions
+    const firstEvolutionName = dataEvolutionChain.chain.species.name;
+    console.log(firstEvolutionName);
+
+    const secondEvolution = dataEvolutionChain.chain.evolves_to[0];
+    const secondEvolutionName = secondEvolution.species.name;
+    console.log(secondEvolutionName);
+
+    const thirdEvolutionName = secondEvolution.evolves_to[0].species.name;
+    console.log(thirdEvolutionName);
 
     //display the ID
         let pokemonID = document.getElementById('pokemonID');
@@ -56,34 +77,3 @@ async function getPokemon () {
 }
 
 searchButton.addEventListener('click', getPokemon);
-searchButton.addEventListener('click', getEvolutions);
-
-    //get the evolution line
-    async function getEvolutions() {
-        const pokemonValue = document.getElementById('pokemon').value;
-        let input = pokemonValue;
-
-        //get pokemon by input
-        const response = await fetch(`${apiPokemon}${input}`);
-        // If call failed, give an error
-        if (!response.ok) {
-            throw 'Something went wrong!';
-        }
-        const data = await response.json();
-
-        const responseEvolutionLine = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${data.name}`);
-        if(!responseEvolutionLine.ok) {
-            throw 'Something went wrong!';
-        }
-        const dataEvolutionLine = await responseEvolutionLine.json();
-        console.log(dataEvolutionLine);
-
-        const previousEvolution = dataEvolutionLine.evolves_from_species;
-        console.log(previousEvolution);
-
-        if (previousEvolution === null) {
-            console.log('No previous evolution');
-        } else {
-            console.log(previousEvolution);
-        }
-    }
