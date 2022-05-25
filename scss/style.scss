@@ -50,6 +50,8 @@ button {
 .display {
   position: relative;
   visibility: hidden;
+  display: flex;
+  flex-direction: row;
 
   .card {
     position: relative;
