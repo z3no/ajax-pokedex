@@ -26,16 +26,18 @@ async function getPokemon () {
     const dataEvolutionChain = await responseEvolutionChain.json();
     console.log(dataEvolutionChain);
 
-    //Evolutions
-    const firstEvolutionName = dataEvolutionChain.chain.species.name;
-    console.log(firstEvolutionName);
-
-    const secondEvolution = dataEvolutionChain.chain.evolves_to[0];
-    const secondEvolutionName = secondEvolution.species.name;
-    console.log(secondEvolutionName);
-
-    const thirdEvolutionName = secondEvolution.evolves_to[0].species.name;
-    console.log(thirdEvolutionName);
+    //Evolutions eevee
+    if (dataEvolutionChain.chain.evolves_to.length === 8) {
+        console.log(dataEvolutionChain.chain.species.name);
+        console.log(dataEvolutionChain.chain.evolves_to[0].species.name);
+        console.log(dataEvolutionChain.chain.evolves_to[1].species.name);
+        console.log(dataEvolutionChain.chain.evolves_to[2].species.name);
+        console.log(dataEvolutionChain.chain.evolves_to[3].species.name);
+        console.log(dataEvolutionChain.chain.evolves_to[4].species.name);
+        console.log(dataEvolutionChain.chain.evolves_to[5].species.name);
+        console.log(dataEvolutionChain.chain.evolves_to[6].species.name);
+        console.log(dataEvolutionChain.chain.evolves_to[7].species.name);
+    }
 
     //display the ID
     let pokemonID = document.getElementById('pokemonID');
