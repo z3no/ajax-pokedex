@@ -47,7 +47,9 @@ async function getPokemon () {
     //display evolutions
     function displayEvolutions (){
         const evolutionDisplay = document.getElementById('evolutionContainer');
-        evolutionDisplay.innerText = pokemonArray;
+        evolutionDisplay.innerText = pokemonArray.join(' ');
+        pokemonArray.src = data.sprites.front_default;
+        console.log(pokemonArray);
     }
 
     displayEvolutions();
